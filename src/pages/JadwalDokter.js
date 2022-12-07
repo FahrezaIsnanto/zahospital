@@ -12,7 +12,9 @@ export default function JadwalDokter() {
   useEffect(() => {
     async function fetchJadwalDokter() {
       try {
-        const response = await axios.get("https://api-zahospital.herokuapp.com/jadwalDokter");
+        const response = await axios.get(
+          "https://apireza.destinasicomputindo.com/jadwalDokter"
+        );
         if (response.status === 200) {
           setData(response.data);
         }

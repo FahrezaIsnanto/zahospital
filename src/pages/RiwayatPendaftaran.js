@@ -13,11 +13,14 @@ export default function RiwayatPendaftaran() {
   useEffect(() => {
     async function fetchRiwayatPendaftaran() {
       try {
-        const response = await axios.get("https://api-zahospital.herokuapp.com/pendaftaran", {
-          params: {
-            no_rm_pasien,
-          },
-        });
+        const response = await axios.get(
+          "https://apireza.destinasicomputindo.com/pendaftaran",
+          {
+            params: {
+              no_rm_pasien,
+            },
+          }
+        );
         if (response.status === 200) {
           setData(response.data);
         }
@@ -41,16 +44,18 @@ export default function RiwayatPendaftaran() {
           className="contentRiwayatPendaftaranImg"
           alt="rocket"
         ></img>
-        {isLoading ? <p>Harap Tunggu..</p> : 
-        data.map(function(item,index){
-          return <div key={index}> 
-            <Gap height={15}/> 
-            <RiwayatCard 
-              riwayat={item}
-            />
-          </div>
-        })
-        }
+        {isLoading ? (
+          <p>Harap Tunggu..</p>
+        ) : (
+          data.map(function (item, index) {
+            return (
+              <div key={index}>
+                <Gap height={15} />
+                <RiwayatCard riwayat={item} />
+              </div>
+            );
+          })
+        )}
       </div>
     </Layout>
   );

@@ -12,11 +12,14 @@ export default function DetailJadwalDokter() {
   useEffect(() => {
     async function fetchDetailJadwalDokter() {
       try {
-        const response = await axios.get("https://api-zahospital.herokuapp.com/jadwalDokter", {
-          params: {
-            id,
-          },
-        });
+        const response = await axios.get(
+          "https://apireza.destinasicomputindo.com/jadwalDokter",
+          {
+            params: {
+              id,
+            },
+          }
+        );
         if (response.status === 200) {
           setData(response.data[0]);
         }
